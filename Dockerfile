@@ -7,10 +7,13 @@ COPY go.mod .
 # run the go.mod dependency file 
 RUN go mod download
 # this will run locally and artifact/ binary called main will created in docker image.
+COPY . .
+
 RUN go build -o main .
 
 # final stage -Destroless image
 FROM gcr.io/distroless/base
+
 COPY --from=base /app/main .
 
 COPY --from=base /app/static ./static
