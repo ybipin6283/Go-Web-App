@@ -1,5 +1,5 @@
 # as base is the alias of the golang
-FROM golang:1.21 as base 
+FROM golang:1.22.5 as base 
 # all the command that will wirte execute in the work directory
 WORKDIR /app
 # the dependecy of go application are stored in go.mod file
